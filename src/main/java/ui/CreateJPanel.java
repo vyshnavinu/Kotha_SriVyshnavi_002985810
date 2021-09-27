@@ -7,6 +7,8 @@ package ui;
 
 import java.io.File;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -308,6 +310,63 @@ public class CreateJPanel extends javax.swing.JPanel {
         personal.setUniqueID(Integer.parseInt(txtUnique.getText()));
         personal.setImageDisplay(imageView);
         
+        String name = txtName.getText();
+        if(name.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "Name can't be left blank!");
+        } else {
+             personal.setName(name);
+        }
+        
+        String geoData = txtGeoData.getText();
+        if(geoData.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "Full Address is a required field!");
+        } else {
+             personal.setGeographicData(geoData);
+        }
+        
+        String phNum = txtTelephone.getText();
+        if(phNum.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "Telephone Number can't be blank!");
+        } else {
+             personal.setPhNum(phNum);
+        }
+        
+
+        Pattern pattern = Pattern.compile("^\\d{7}$");
+        Matcher matcher = pattern.matcher(txtFax.getText());
+        if (matcher.matches()) {
+            personal.setFaxNum(Integer.parseInt(txtFax.getText()));
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter your 7-digit FaxNumber");
+        }
+        
+        String email = txtEmail.getText();
+        if(email.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "Email can't be empty");
+        } else {
+             personal.setEmail(email);
+        }
+        
+        String linkedIn = txtIP.getText();
+        if(linkedIn.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "LinkedIn can't be blank!");
+        } else {
+             personal.setLinkedIn(linkedIn);
+        }
+        
+        String ip = txtIP.getText();
+        if(ip.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "IP address can't be blank!");
+        } else {
+             personal.setIP(ip);
+        }
+        
+        String biometric = txtBiometric.getText();
+        if(biometric.isEmpty())     { 
+            JOptionPane.showMessageDialog(this, "Biometrics can't be left blank!");
+        } else {
+             personal.setBiometric(biometric);
+        }
         
         JOptionPane.showMessageDialog(this, "Personal Profile Information Saved");
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -323,8 +382,9 @@ public class CreateJPanel extends javax.swing.JPanel {
             File file = fileChooser.getSelectedFile();
             String getSelectedImage = file.getAbsolutePath();
             imageView = getSelectedImage;
-            JOptionPane.showMessageDialog(null, getSelectedImage);
+            JOptionPane.showMessageDialog(null, "Uploaded the image :" + getSelectedImage);
         }
+        else JOptionPane.showMessageDialog(null, "Please upload images in the format .jpg, .jpeg, .png!!!");
         
     }//GEN-LAST:event_btnPhotoActionPerformed
 
