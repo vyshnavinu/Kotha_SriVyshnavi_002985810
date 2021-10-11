@@ -41,10 +41,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        controlPanel.setBackground(new java.awt.Color(242, 242, 242));
+        controlPanel.setBackground(new java.awt.Color(51, 51, 51));
 
         btnCreate.setText("Create Car");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -83,17 +84,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(253, 253, 253));
+        workArea.setBackground(new java.awt.Color(246, 207, 207));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel1.setText("CAR MANAGEMENT SYSTEM");
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 992, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(599, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(workArea);
@@ -259,6 +269,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnView;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
